@@ -7,6 +7,6 @@ IntelliJ IDEA 2022.1.2 (Ultimate Edition)
 apache-maven-3.9.1  
 jdk17  
 tomcat10.1.7  
-##简单介绍
+## 简单介绍
 testMybatis,testSpring,testSpringMVC三个模块是用来学习和测试三个框架的。dataResponse是集成了SSM的模块主要功能都会写到这里  
 testSpringMVC模块中不使用视图功能，前后端分离使用视图增加了前后端的耦合
