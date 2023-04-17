@@ -1,0 +1,7 @@
+# Project exclude paths
+/dataResponse/target/
+/out/
+/target/
+/testMybatis/target/
+/testSpring/target/
+/testSpringMVC/target/
