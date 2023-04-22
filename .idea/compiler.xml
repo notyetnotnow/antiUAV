@@ -10,6 +10,7 @@
         <module name="testMybatis" />
         <module name="testSpring" />
         <module name="testSpringMVC" />
+        <module name="testMybaties" />
       </profile>
     </annotationProcessing>
   </component>

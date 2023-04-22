@@ -30,8 +30,8 @@ public class EquipmentServiceImpl implements EquipmentService {
 
 
     @Override
-    public List<Equipment> queryAll() {
-        return equipmentDao.queryAll();
+    public List<Equipment> selectAll() {
+        return equipmentDao.selectAll();
     }
 
 }

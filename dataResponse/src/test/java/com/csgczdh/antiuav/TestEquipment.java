@@ -29,7 +29,7 @@ public class TestEquipment {
 
         EquipmentDao equipmentMapper = sqlSession.getMapper(EquipmentDao.class);
 
-        List<Equipment> list = equipmentMapper.queryAll();
+        List<Equipment> list = equipmentMapper.selectAll();
 
         for (Equipment equipment : list){
             System.out.println(equipment);

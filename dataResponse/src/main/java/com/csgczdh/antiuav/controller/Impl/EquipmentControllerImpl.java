@@ -18,7 +18,7 @@ public class EquipmentControllerImpl implements EquipmentController {
 
 
     @Override
-    @RequestMapping("/insertSingle")
+    @RequestMapping("/insertEquipmentSingle")
     @ResponseBody
     public Integer insertSingle(HttpServletRequest request) {
         String name = request.getParameter("name");
@@ -34,7 +34,7 @@ public class EquipmentControllerImpl implements EquipmentController {
     }
 
     @Override
-    @RequestMapping("/deleteSingleBySiteIdAndType")
+    @RequestMapping("/deleteEquipmentSingleBySiteIdAndType")
     @ResponseBody
     public Integer deleteSingleBySiteIdAndType(HttpServletRequest request) {
         Integer type = Integer.parseInt(request.getParameter("type"));
@@ -43,7 +43,7 @@ public class EquipmentControllerImpl implements EquipmentController {
     }
 
     @Override
-    @RequestMapping("/updateSingleBySiteIdAndType")
+    @RequestMapping("/updateEquipmentSingleBySiteIdAndType")
     @ResponseBody
     public Integer updateSingleBySiteIdAndType(HttpServletRequest request) {
         Double longitude = Double.parseDouble(request.getParameter("longitude"));
@@ -58,10 +58,10 @@ public class EquipmentControllerImpl implements EquipmentController {
 
 
     @Override
-    @RequestMapping("/queryAll")
+    @RequestMapping("/selectEquipmentAll")
     @ResponseBody
     public List<Equipment> queryAll() {
-        List<Equipment> equipments = equipmentService.queryAll();
+        List<Equipment> equipments = equipmentService.selectAll();
         System.out.println(equipments);
         return equipments;
     }

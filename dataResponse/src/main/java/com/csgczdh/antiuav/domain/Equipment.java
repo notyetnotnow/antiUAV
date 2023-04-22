@@ -1,5 +1,8 @@
 package com.csgczdh.antiuav.domain;
 
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+
 
 public class Equipment {
 

@@ -12,7 +12,7 @@ public interface EquipmentService {
     Integer deleteSingleBySiteIdAndType(Integer siteId, Integer type);
     Integer updateSingleBySiteIdAndType(Double longitude, Double latitude, Double elevation, String ip,
                                         Boolean state, Integer siteId,Integer type);
-    List<Equipment> queryAll();
+    List<Equipment> selectAll();
 
 
 }
