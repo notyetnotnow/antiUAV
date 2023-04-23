@@ -37,7 +37,8 @@ public interface EquipmentDao {
             @Result(property = "type", column = "type")
     })
     @Select("select e.* from equipment e")
-    List<Equipment> selectAll();
+    List<Equipment> selectEquipments();
+
     @Select("select e.* from equipment e " +
             "where e.site_id = #{siteId}")
     @ResultMap("equipmentMap")

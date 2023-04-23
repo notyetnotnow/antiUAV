@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@ResponseBody
 public class SiteControllerImpl implements SiteController {
 
     @Autowired
@@ -17,7 +18,6 @@ public class SiteControllerImpl implements SiteController {
 
     @Override
     @RequestMapping("/selectSiteBySiteId")
-    @ResponseBody
     public Site selectSiteBySiteId(HttpServletRequest request) {
         Integer id = Integer.parseInt(request.getParameter("id"));
         return siteService.selectSiteBySiteId(id);

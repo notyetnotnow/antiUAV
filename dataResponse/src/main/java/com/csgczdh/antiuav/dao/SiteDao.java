@@ -15,6 +15,7 @@ public interface SiteDao {
             @Result(property = "id", column = "id"),
             @Result(property = "name", column = "name"),
             @Result(property = "state", column = "state"),
+            @Result(property = "centerId", column = "center_id"),
             @Result(property = "equipmentList",
                     javaType = List.class,
                     many = @Many(select = "com.csgczdh.antiuav.dao.EquipmentDao.selectEquipmentsBySiteId"),
@@ -23,4 +24,17 @@ public interface SiteDao {
     @Select("select s.* from site s " +
             "where s.id = #{siteId}")
     Site selectSiteBySiteId(@Param("siteId") Integer siteId);
+
+    @Results(id = "siteMaps", value = {
+            @Result(property = "id", column = "id"),
+            @Result(property = "name", column = "name"),
+            @Result(property = "state", column = "state"),
+            @Result(property = "centerId", column = "center_id"),
+            @Result(property = "equipmentList",
+                    javaType = List.class,
+                    many = @Many(select = "com.csgczdh.antiuav.dao.EquipmentDao.selectEquipments"),
+                    column = "id")
+    })
+    @Select("select s.* from site s")
+    List<Site> selectSites();
 }
