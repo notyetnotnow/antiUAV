@@ -35,6 +35,7 @@ public interface SiteDao {
                     many = @Many(select = "com.csgczdh.antiuav.dao.EquipmentDao.selectEquipments"),
                     column = "id")
     })
-    @Select("select s.* from site s")
-    List<Site> selectSites();
+    @Select("select s.* from site s " +
+            "where s.center_id = #{centerId}")
+    List<Site> selectSites(@Param("centerId") Integer centerId);
 }

@@ -31,7 +31,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 
     @Override
     public List<Equipment> selectAll() {
-        return equipmentDao.selectEquipments();
+        return equipmentDao.selectAll();
     }
 
 }
