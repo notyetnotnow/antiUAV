@@ -11,9 +11,14 @@ public interface EquipmentDao {
             "values(null, #{name}, #{longitude}, #{latitude}, #{elevation}, #{ip}, #{state}, #{type}, #{siteId})")
     Integer insertSingle(Equipment equipment);
 
-    @Delete("delete from equipment where site_d = #{siteId} and type = #{type}")
+    @Delete("delete from equipment where site_id = #{siteId} and type = #{type}")
     Integer deleteSingleBySiteIdAndType(@Param("siteId") Integer siteId,@Param("type") Integer type);
 
+    @Delete("delete from equipment e where e.id = #{id}")
+    Integer deleteById(@Param("id") Integer id);
+
+    @Delete("delete from equipment e where e.site_id = #{siteId}")
+    Integer deleteBySiteId(@Param("siteId") Integer siteId);
 
     @Update("update equipment set longitude = #{longitude}, latitude = #{latitude}, elevation = #{elevation}, " +
             "ip = #{ip}, state = #{state} " +

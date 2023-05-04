@@ -34,18 +34,13 @@ public class CommandCenterControllerImpl implements CommandCenterController {
         return commandCenterService.selectCenters();
     }
 
-    @GetMapping("/sse")
-    public ResponseEntity<SseEmitter> getSSE() {
-        SseEmitter emitter = new SseEmitter();
-        try {
-            if(true){
-                emitter.send(commandCenterService.selectCenters());
-                emitter.complete();
-            }
+    @Override
+    @RequestMapping("/insertCenter")
+    public Integer insertCenter(HttpServletRequest request) {
+        String name = request.getParameter("centerName");
+        Boolean state = Boolean.parseBoolean(request.getParameter("centerState"));
 
-        } catch (Exception ex) {
-            emitter.completeWithError(ex);
-        }
-        return ResponseEntity.ok().body(emitter);
+        return commandCenterService.insertCenter(name, state);
     }
+
 }

@@ -5,4 +5,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public interface SiteController {
     Site selectSiteBySiteId(HttpServletRequest request);
+
+    Integer insertSite(HttpServletRequest request);
 }

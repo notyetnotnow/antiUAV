@@ -22,4 +22,14 @@ public class CommandCenterServiceImpl implements CommandCenterService {
         return commandCenterDao.selectCenters();
     }
 
+    @Override
+    public Integer deleteById(Integer id) {
+        return commandCenterDao.deleteById(id);
+    }
+
+    @Override
+    public Integer insertCenter(String centerName, Boolean centerState) {
+        return commandCenterDao.insertCenter(centerName, centerState);
+    }
+
 }

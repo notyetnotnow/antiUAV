@@ -6,6 +6,8 @@ import com.csgczdh.antiuav.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SiteServiceImpl implements SiteService {
     @Autowired
@@ -13,5 +15,25 @@ public class SiteServiceImpl implements SiteService {
     @Override
     public Site selectSiteBySiteId(Integer id) {
         return siteDao.selectSiteBySiteId(id);
+    }
+
+    @Override
+    public Integer deleteById(Integer id) {
+        return siteDao.deleteById(id);
+    }
+
+    @Override
+    public Integer deleteByCenterId(Integer centerId) {
+        return siteDao.deleteByCenterId(centerId);
+    }
+
+    @Override
+    public List<Integer> selectSitesIdByCenterId(Integer centerId) {
+        return siteDao.selectSitesIdByCenterId(centerId);
+    }
+
+    @Override
+    public Integer insertSite(String name, Boolean state,Integer belong) {
+        return siteDao.insertSite(name, state, belong);
     }
 }

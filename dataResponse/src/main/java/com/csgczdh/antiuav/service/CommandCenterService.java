@@ -11,4 +11,8 @@ public interface CommandCenterService {
     CommandCenter selectCenterByCenterIdAndSiteId(Integer centerId, Integer siteId);
 
     List<CommandCenter> selectCenters();
+
+    Integer deleteById(Integer id);
+
+    Integer insertCenter(String centerName, Boolean centerState);
 }

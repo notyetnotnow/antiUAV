@@ -9,5 +9,7 @@ public interface CommandCenterController {
     CommandCenter selectCenterByCenterIdAndSiteId(HttpServletRequest request);
 
     List<CommandCenter> selectCenters(HttpServletRequest request);
+
+    Integer insertCenter(HttpServletRequest request);
 }
 

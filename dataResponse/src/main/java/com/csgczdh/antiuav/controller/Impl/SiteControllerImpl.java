@@ -22,4 +22,14 @@ public class SiteControllerImpl implements SiteController {
         Integer id = Integer.parseInt(request.getParameter("id"));
         return siteService.selectSiteBySiteId(id);
     }
+
+    @Override
+    @RequestMapping("/insertSite")
+    public Integer insertSite(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        Boolean state = Boolean.parseBoolean(request.getParameter("state"));
+        Integer belong = Integer.parseInt(request.getParameter("belong"));
+        return siteService.insertSite(name, state, belong);
+    }
+
 }

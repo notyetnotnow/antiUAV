@@ -34,4 +34,15 @@ public class EquipmentServiceImpl implements EquipmentService {
         return equipmentDao.selectAll();
     }
 
+    @Override
+    public Integer deleteById(Integer id) {
+        return equipmentDao.deleteById(id);
+    }
+
+    @Override
+    public Integer deleteBySiteId(Integer siteId) {
+        return equipmentDao.deleteBySiteId(siteId);
+    }
+
+
 }

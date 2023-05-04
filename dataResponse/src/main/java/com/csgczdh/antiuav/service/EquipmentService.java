@@ -14,5 +14,8 @@ public interface EquipmentService {
                                         Boolean state, Integer siteId,Integer type);
     List<Equipment> selectAll();
 
+    Integer deleteById(Integer id);
+
+    Integer deleteBySiteId(Integer siteId);
 
 }

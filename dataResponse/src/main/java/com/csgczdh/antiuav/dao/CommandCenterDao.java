@@ -31,4 +31,11 @@ public interface CommandCenterDao {
     })
     @Select("select c.* from command_center c ")
     List<CommandCenter> selectCenters();
+
+    @Delete("delete from command_center c where c.id = #{id}")
+    Integer deleteById(@Param("id") Integer id);
+
+    @Insert("insert into command_center(name, state) " +
+            "values(#{centerName},#{centerState})")
+    Integer insertCenter(@Param("centerName") String centerName,@Param("centerState") Boolean centerState);
 }
