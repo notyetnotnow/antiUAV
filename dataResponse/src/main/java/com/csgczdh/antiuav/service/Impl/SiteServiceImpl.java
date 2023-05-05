@@ -36,4 +36,9 @@ public class SiteServiceImpl implements SiteService {
     public Integer insertSite(String name, Boolean state,Integer belong) {
         return siteDao.insertSite(name, state, belong);
     }
+
+    @Override
+    public Integer updateById(String name, Boolean state, Integer id) {
+        return siteDao.updateById(name, state, id);
+    }
 }

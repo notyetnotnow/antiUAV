@@ -43,4 +43,13 @@ public class CommandCenterControllerImpl implements CommandCenterController {
         return commandCenterService.insertCenter(name, state);
     }
 
+    @Override
+    @RequestMapping("/updateCenter")
+    public Integer updateById(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        Boolean state = Boolean.parseBoolean(request.getParameter("state"));
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        return commandCenterService.updateById(name, state, id);
+    }
+
 }

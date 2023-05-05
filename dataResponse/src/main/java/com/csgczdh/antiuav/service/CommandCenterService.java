@@ -15,4 +15,6 @@ public interface CommandCenterService {
     Integer deleteById(Integer id);
 
     Integer insertCenter(String centerName, Boolean centerState);
+
+    Integer updateById(String name, Boolean state, Integer id);
 }

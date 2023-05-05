@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface EquipmentDao {
 
-    @Insert("insert into equipment (id, name, longitude, latitude, elevation, ip, state, type, siteId) " +
+    @Insert("insert into equipment (id, name, longitude, latitude, elevation, ip, state, type, site_id) " +
             "values(null, #{name}, #{longitude}, #{latitude}, #{elevation}, #{ip}, #{state}, #{type}, #{siteId})")
     Integer insertSingle(Equipment equipment);
 
@@ -20,7 +20,8 @@ public interface EquipmentDao {
     @Delete("delete from equipment e where e.site_id = #{siteId}")
     Integer deleteBySiteId(@Param("siteId") Integer siteId);
 
-    @Update("update equipment set longitude = #{longitude}, latitude = #{latitude}, elevation = #{elevation}, " +
+    @Update("update equipment " +
+            "set longitude = #{longitude}, latitude = #{latitude}, elevation = #{elevation}, " +
             "ip = #{ip}, state = #{state} " +
             "where site_id = #{siteId} and type = #{type}")
     Integer updateSingleBySiteIdAndType(@Param("longitude") Double longitude,
@@ -30,6 +31,19 @@ public interface EquipmentDao {
                                         @Param("state") Boolean state,
                                         @Param("siteId") Integer siteId,
                                         @Param("type") Integer type);
+
+    @Update("update equipment " +
+            "set longitude = #{longitude}, latitude = #{latitude}, elevation = #{elevation}, " +
+            "ip = #{ip}, state = #{state}, name=#{name}, type=#{type} " +
+            "where id = #{id}")
+    Integer updateById(@Param("longitude") Double longitude,
+                       @Param("latitude") Double latitude,
+                       @Param("elevation") Double elevation,
+                       @Param("ip") String ip,
+                       @Param("state") Boolean state,
+                       @Param("name") String name,
+                       @Param("type") Integer type,
+                       @Param("id") Integer id);
     @Results(id = "equipmentMap" ,value = {
             @Result(property = "id", column = "id"),
             @Result(property = "name", column = "name"),

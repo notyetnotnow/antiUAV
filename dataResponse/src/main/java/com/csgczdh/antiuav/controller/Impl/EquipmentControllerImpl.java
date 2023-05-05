@@ -19,7 +19,7 @@ public class EquipmentControllerImpl implements EquipmentController {
 
 
     @Override
-    @RequestMapping("/insertEquipmentSingle")
+    @RequestMapping("/insertEquipment")
     public Integer insertSingle(HttpServletRequest request) {
         String name = request.getParameter("name");
         double longitude = Double.parseDouble(request.getParameter("longitude"));
@@ -28,7 +28,7 @@ public class EquipmentControllerImpl implements EquipmentController {
         String ip = request.getParameter("ip");
         boolean state = Boolean.parseBoolean(request.getParameter("state"));
         Integer type = Integer.parseInt(request.getParameter("type"));
-        Integer siteId = Integer.parseInt(request.getParameter("siteId"));
+        Integer siteId = Integer.parseInt(request.getParameter("belong"));
         Equipment equipment = new Equipment(null, name, longitude, latitude, elevation, ip, state, type, siteId);
         return equipmentService.insertSingle(equipment);
     }
@@ -61,5 +61,20 @@ public class EquipmentControllerImpl implements EquipmentController {
         List<Equipment> equipments = equipmentService.selectAll();
         System.out.println(equipments);
         return equipments;
+    }
+
+    @Override
+    @RequestMapping("/updateEquipment")
+    public Integer updateById(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        double longitude = Double.parseDouble(request.getParameter("longitude"));
+        double latitude = Double.parseDouble(request.getParameter("latitude"));
+        double elevation = Double.parseDouble(request.getParameter("elevation"));
+        String ip = request.getParameter("ip");
+        boolean state = Boolean.parseBoolean(request.getParameter("state"));
+        Integer type = Integer.parseInt(request.getParameter("type"));
+        Integer id = Integer.parseInt(request.getParameter("id"));
+
+        return equipmentService.updateById(longitude, latitude, elevation, ip, state, name, type, id);
     }
 }

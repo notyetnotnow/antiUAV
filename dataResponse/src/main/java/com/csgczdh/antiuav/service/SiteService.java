@@ -18,4 +18,6 @@ public interface SiteService {
     List<Integer> selectSitesIdByCenterId(Integer centerId);
 
     Integer insertSite(String name, Boolean state, Integer belong);
+
+    Integer updateById(String name, Boolean state, Integer id);
 }

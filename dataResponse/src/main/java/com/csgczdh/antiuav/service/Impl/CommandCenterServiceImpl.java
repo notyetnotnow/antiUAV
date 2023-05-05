@@ -32,4 +32,9 @@ public class CommandCenterServiceImpl implements CommandCenterService {
         return commandCenterDao.insertCenter(centerName, centerState);
     }
 
+    @Override
+    public Integer updateById(String name, Boolean state, Integer id) {
+        return commandCenterDao.updateById(name, state, id);
+    }
+
 }

@@ -28,6 +28,11 @@ public class EquipmentServiceImpl implements EquipmentService {
         return equipmentDao.updateSingleBySiteIdAndType(longitude, latitude, elevation, ip, state, siteId, type);
     }
 
+    @Override
+    public Integer updateById(Double longitude, Double latitude, Double elevation, String ip, Boolean state, String name, Integer type, Integer id) {
+        return equipmentDao.updateById(longitude, latitude, elevation, ip, state, name, type, id);
+    }
+
 
     @Override
     public List<Equipment> selectAll() {

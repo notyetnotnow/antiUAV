@@ -11,5 +11,7 @@ public interface CommandCenterController {
     List<CommandCenter> selectCenters(HttpServletRequest request);
 
     Integer insertCenter(HttpServletRequest request);
+
+    Integer updateById(HttpServletRequest request);
 }
 

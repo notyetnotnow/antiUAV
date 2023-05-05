@@ -7,4 +7,5 @@ public interface SiteController {
     Site selectSiteBySiteId(HttpServletRequest request);
 
     Integer insertSite(HttpServletRequest request);
+    Integer updateById(HttpServletRequest request);
 }

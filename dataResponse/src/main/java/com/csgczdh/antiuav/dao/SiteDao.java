@@ -50,4 +50,9 @@ public interface SiteDao {
     @Insert("insert into site(name, state, center_id) " +
             "values(#{name},#{state},#{centerId})")
     Integer insertSite(@Param("name") String name,@Param("state") Boolean state,@Param("centerId") Integer centerId);
+
+    @Update("update site " +
+            "set name=#{name},state=#{state} " +
+            "where id=#{id}")
+    Integer updateById(@Param("name") String name, @Param("state") Boolean state, @Param("id") Integer integerd);
 }

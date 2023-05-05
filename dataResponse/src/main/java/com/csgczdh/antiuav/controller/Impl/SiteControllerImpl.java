@@ -32,4 +32,13 @@ public class SiteControllerImpl implements SiteController {
         return siteService.insertSite(name, state, belong);
     }
 
+    @Override
+    @RequestMapping("/updateSite")
+    public Integer updateById(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        Boolean state = Boolean.parseBoolean(request.getParameter("state"));
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        return siteService.updateById(name, state, id);
+    }
+
 }

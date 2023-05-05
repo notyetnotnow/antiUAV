@@ -38,4 +38,9 @@ public interface CommandCenterDao {
     @Insert("insert into command_center(name, state) " +
             "values(#{centerName},#{centerState})")
     Integer insertCenter(@Param("centerName") String centerName,@Param("centerState") Boolean centerState);
+
+    @Update("update command_center " +
+            "set name=#{name},state=#{state} " +
+            "where id=#{id}")
+    Integer updateById(@Param("name") String name, @Param("state") Boolean state, @Param("id") Integer id);
 }

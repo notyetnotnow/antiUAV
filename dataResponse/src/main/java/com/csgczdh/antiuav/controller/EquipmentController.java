@@ -12,5 +12,6 @@ public interface EquipmentController {
     Integer deleteSingleBySiteIdAndType(HttpServletRequest request);
     Integer updateSingleBySiteIdAndType(HttpServletRequest request);
     List<Equipment> queryAll();
+    Integer updateById(HttpServletRequest request);
 
 }
