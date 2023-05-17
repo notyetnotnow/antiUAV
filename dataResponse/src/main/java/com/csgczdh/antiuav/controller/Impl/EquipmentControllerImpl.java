@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+import static com.csgczdh.antiuav.controller.Impl.UserControllerImpl.isAdmin;
+
 @Controller
 @ResponseBody
 public class EquipmentControllerImpl implements EquipmentController {
@@ -21,6 +23,9 @@ public class EquipmentControllerImpl implements EquipmentController {
     @Override
     @RequestMapping("/insertEquipment")
     public Integer insertSingle(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         String name = request.getParameter("name");
         double longitude = Double.parseDouble(request.getParameter("longitude"));
         double latitude = Double.parseDouble(request.getParameter("latitude"));
@@ -36,6 +41,9 @@ public class EquipmentControllerImpl implements EquipmentController {
     @Override
     @RequestMapping("/deleteEquipmentSingleBySiteIdAndType")
     public Integer deleteSingleBySiteIdAndType(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         Integer type = Integer.parseInt(request.getParameter("type"));
         Integer siteId = Integer.parseInt(request.getParameter("siteId"));
         return equipmentService.deleteSingleBySiteIdAndType(siteId, type);
@@ -44,6 +52,9 @@ public class EquipmentControllerImpl implements EquipmentController {
     @Override
     @RequestMapping("/updateEquipmentSingleBySiteIdAndType")
     public Integer updateSingleBySiteIdAndType(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         Double longitude = Double.parseDouble(request.getParameter("longitude"));
         Double latitude = Double.parseDouble(request.getParameter("latitude"));
         Double elevation = Double.parseDouble(request.getParameter("elevation"));
@@ -66,6 +77,9 @@ public class EquipmentControllerImpl implements EquipmentController {
     @Override
     @RequestMapping("/updateEquipment")
     public Integer updateById(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         String name = request.getParameter("name");
         double longitude = Double.parseDouble(request.getParameter("longitude"));
         double latitude = Double.parseDouble(request.getParameter("latitude"));

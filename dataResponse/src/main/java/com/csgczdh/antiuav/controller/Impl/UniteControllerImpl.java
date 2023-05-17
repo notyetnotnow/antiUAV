@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.csgczdh.antiuav.controller.Impl.UserControllerImpl.isAdmin;
+
 
 @Controller
 @ResponseBody
@@ -41,6 +43,9 @@ public class UniteControllerImpl{
 
     @RequestMapping("/deleteByLevelAndId")
     public Integer deleteByLevelAndId(HttpServletRequest request){
+        if (!isAdmin(request)) {
+            return -1;
+        }
         Integer level = Integer.parseInt(request.getParameter("level"));
         Integer id = Integer.parseInt(request.getParameter("id"));
         System.out.println(level);

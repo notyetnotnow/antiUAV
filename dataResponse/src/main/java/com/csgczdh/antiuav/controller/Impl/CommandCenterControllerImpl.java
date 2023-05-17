@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import java.util.List;
 
+import static com.csgczdh.antiuav.controller.Impl.UserControllerImpl.isAdmin;
+
 @Controller
 @ResponseBody
 public class CommandCenterControllerImpl implements CommandCenterController {
@@ -37,6 +39,9 @@ public class CommandCenterControllerImpl implements CommandCenterController {
     @Override
     @RequestMapping("/insertCenter")
     public Integer insertCenter(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         String name = request.getParameter("centerName");
         Boolean state = Boolean.parseBoolean(request.getParameter("centerState"));
 
@@ -46,6 +51,9 @@ public class CommandCenterControllerImpl implements CommandCenterController {
     @Override
     @RequestMapping("/updateCenter")
     public Integer updateById(HttpServletRequest request) {
+        if (!isAdmin(request)) {
+            return -1;
+        }
         String name = request.getParameter("name");
         Boolean state = Boolean.parseBoolean(request.getParameter("state"));
         Integer id = Integer.parseInt(request.getParameter("id"));
